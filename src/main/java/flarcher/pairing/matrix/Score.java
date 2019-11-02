@@ -21,7 +21,7 @@ public class Score {
 
 	public Score addValue(int value) {
 		if (value < 0 || value > 20) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Bad score value " + value);
 		}
 		sum += value;
 		count++;
@@ -34,6 +34,11 @@ public class Score {
 
 	public int getCount() {
 		return count;
+	}
+
+	@Override
+	public String toString() {
+		return Integer.toString(getValue());
 	}
 
 	@Override

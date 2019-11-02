@@ -3,6 +3,7 @@ package flarcher.pairing.matrix.xls;
 import flarcher.pairing.Army;
 import flarcher.pairing.matrix.Matrix;
 import flarcher.pairing.matrix.MatrixReader;
+import flarcher.pairing.matrix.Score;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -12,6 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class XlsMatrixReader implements MatrixReader {
 
@@ -101,7 +103,54 @@ public class XlsMatrixReader implements MatrixReader {
 		} while (notEmptyCell(cell));
 		printArmies(rowArmies);
 
-		return null; // TODO
+		if (rowArmies.size() != columnArmies.size()) {
+			throw new IllegalArgumentException("Not same army count on each side?");
+		}
+
+		int armyCount = rowArmies.size();
+		Matrix matrix = new Matrix(armyCount);
+		matrix.setArmies(false, columnArmies);
+		matrix.setArmies(true, rowArmies);
+
+		fillMatrix(matrix,
+			origin.getSheet().getRow(origin.getRowIndex() + 1).getCell(origin.getColumnIndex()));
+
+		return matrix;
+	}
+
+	private static Optional<Integer> readInteger(XSSFCell cell) {
+		switch (cell.getCellType()) {
+			case STRING:
+				String strValue = cell.getStringCellValue();
+				try {
+					return Optional.of(Integer.parseUnsignedInt(strValue));
+				}
+				catch (NumberFormatException e) {
+					return Optional.empty();
+					/*throw new IllegalArgumentException(String.format("Impossible to read score from cell @%s:%s from %s",
+							cell.getRowIndex(), cell.getColumnIndex(), strValue), e);*/
+				}
+			case NUMERIC:
+				return Optional.of(Double.valueOf(cell.getNumericCellValue()).intValue());
+			default:
+				return Optional.empty();
+				/*throw new IllegalArgumentException(String.format("Impossible to read score from cell @%s:%s",
+						cell.getRowIndex(), cell.getColumnIndex()));*/
+		}
+	}
+
+	private void fillMatrix(Matrix matrix, XSSFCell origin) {
+		XSSFCell cell;
+		int size = matrix.getSize();
+		for (int row = 0; row < size; row++) {
+			for (int column = 0; column < size; column++) {
+				cell = origin.getSheet()
+						.getRow(origin.getRowIndex() + row)
+						.getCell(origin.getColumnIndex() + column);
+				Score score = readInteger(cell).map(Score::new).orElseGet(Score::new);
+				matrix.setScore(row, column, score);
+			}
+		}
 	}
 
 	@Override

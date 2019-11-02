@@ -42,4 +42,13 @@ public class Matrix {
 		armies.toArray(isRow ? rowArmies : colArmies);
 		return this;
 	}
+
+	@Override
+	public String toString() {
+		return "Matrix{" +
+				"rowArmies=" + Arrays.toString(rowArmies) +
+				", colArmies=" + Arrays.toString(colArmies) +
+				", scores=" + Arrays.toString(scores) +
+				'}';
+	}
 }
