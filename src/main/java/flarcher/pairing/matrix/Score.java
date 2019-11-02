@@ -1,4 +1,4 @@
-package flarcher.pairing;
+package flarcher.pairing.matrix;
 
 import java.util.Objects;
 

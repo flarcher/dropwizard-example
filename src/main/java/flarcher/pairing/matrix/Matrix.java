@@ -1,4 +1,6 @@
-package flarcher.pairing;
+package flarcher.pairing.matrix;
+
+import flarcher.pairing.Army;
 
 import java.util.Arrays;
 import java.util.List;

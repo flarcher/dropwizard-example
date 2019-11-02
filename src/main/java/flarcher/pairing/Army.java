@@ -23,7 +23,7 @@ public class Army {
 	 * @param index  Index starting with 1 (not zero-based)
 	 * @param isRow Is the army on a row or a column from the data source.
 	 */
-	Army(String name, int index, boolean isRow) {
+	public Army(String name, int index, boolean isRow) {
 		this.name = name;
 		this.index = index;
 		this.isRow = isRow;

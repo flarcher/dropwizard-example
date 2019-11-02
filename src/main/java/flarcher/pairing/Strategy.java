@@ -1,5 +1,7 @@
 package flarcher.pairing;
 
+import flarcher.pairing.matrix.Matrix;
+
 import java.util.Comparator;
 import java.util.Set;
 
