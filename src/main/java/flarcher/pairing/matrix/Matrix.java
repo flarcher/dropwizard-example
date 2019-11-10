@@ -27,7 +27,7 @@ public class Matrix {
 	}
 
 	public Matrix setScore(int row, int column, Score score) {
-		scores[row][column] = score;
+		scores[row][column] = score != null && score.getCount() > 0 ? score : null;
 		return this;
 	}
 

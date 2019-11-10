@@ -4,6 +4,9 @@ import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+ * An assignment of armies on several tables.
+ */
 public class Assignment implements Cloneable {
 
 	static Assignment createEmpty(int tableCount) {

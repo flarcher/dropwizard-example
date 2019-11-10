@@ -2,6 +2,10 @@ package flarcher.pairing.matrix;
 
 import java.util.Objects;
 
+/**
+ * A matrix score.
+ * Between 2 armies, the score must be between 0 and 20.
+ */
 public class Score {
 
 	public Score() {
