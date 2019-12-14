@@ -1,4 +1,4 @@
-package flarcher.pairing;
+package flarcher.pairing.console;
 
 public class Main {
 

@@ -1,3 +1,7 @@
 target
 *.iml
+**/*.iml
 .idea
+**/.idea
+*~
+console/dependency-reduced-pom.xml
