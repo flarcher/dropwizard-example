@@ -1,1 +1,8 @@
 defaultTableCount: 4
+server:
+  type: simple
+  applicationContextPath: /api
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 8000
