@@ -23,7 +23,6 @@
         <dependency>
             <groupId>name.flarcher.pairing</groupId>
             <artifactId>core</artifactId>
-            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
