@@ -22,8 +22,9 @@ Here is the command for the build:
 
 With the source code, we can run the server with:
 
-    java -jar http-api/target/http-api-1.0-SNAPSHOT.jar server http-api/src/test/resources/configuration-example.yml
+    java -jar http-api/target/http-api-1.0-SNAPSHOT.jar server configuration.yml
    
 ## License
 
-This project is licensed according to **CC BY-NC-SA** ( [description](https://creativecommons.org/licenses/by-nc-sa/4.0/) | [legal](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) ) 
+This project is licensed according to **CC BY-NC-SA** ( [description](https://creativecommons.org/licenses/by-nc-sa/4.0/) | [legal](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) )
+
