@@ -61,4 +61,18 @@
         </dependencies>
     </dependencyManagement>
 
+    <contributors>
+        <contributor>
+            <name>Fabrice Larcher</name>
+        </contributor>
+    </contributors>
+
+    <licenses>
+        <license>
+            <name>CC BY-NC-SA</name>
+            <comments>Creative Commons BY-NC-SA</comments>
+            <url>https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</url>
+        </license>
+    </licenses>
+
 </project>
