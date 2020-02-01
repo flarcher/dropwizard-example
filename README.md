@@ -20,10 +20,12 @@ Here is the command for the build:
 
     maven install
 
-With the source code, we can run the server with:
+Then, you can run the server with:
 
     java -jar http-api/target/http-api-1.0-SNAPSHOT.jar server configuration.yml
-   
+
+This server will deploy an API accessible from [http://localhost:8000/api](http://localhost:8000/api) by default. The API port can be configured as the attribute `server.connecter.port` in the configuration file.
+
 ## License
 
 This project is licensed according to **CC BY-NC-SA** ( [description](https://creativecommons.org/licenses/by-nc-sa/4.0/) | [legal](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) )

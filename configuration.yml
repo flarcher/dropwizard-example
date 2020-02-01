@@ -1,4 +1,7 @@
+# Application settings
 defaultTableCount: 4
+
+# Technical server configuration
 server:
   type: simple
   applicationContextPath: /api
