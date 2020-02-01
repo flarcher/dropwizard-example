@@ -12,6 +12,7 @@
         <module>core</module>
         <module>matrix-xls</module>
         <module>http-api</module>
+        <module>local-main</module>
     </modules>
 
     <properties>
@@ -50,6 +51,11 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>http-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

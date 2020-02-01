@@ -7,10 +7,6 @@ import io.dropwizard.setup.Environment;
 
 public class PairingApplication extends Application<PairingConfiguration> {
 
-	public static void main(String[] args) throws Exception {
-		new PairingApplication().run(args);
-	}
-
 	@Override
 	public String getName() {
 		return "ETC Table Pairing Tool";
