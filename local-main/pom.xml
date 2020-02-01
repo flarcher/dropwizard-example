@@ -12,6 +12,7 @@
     <artifactId>local-main</artifactId>
 
     <build>
+        <finalName>table-pairing</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -54,13 +55,34 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>Moves-at-root-directory</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <move todir="${dist.directory}">
+                                    <filelist dir="${project.build.directory}">
+                                        <file name="${project.build.finalName}.jar"/>
+                                    </filelist>
+                                </move>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
     <dependencies>
         <!-- Projects modules -->
         <dependency>
-            <groupId>name.flarcher.pairing</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>http-api</artifactId>
         </dependency>
 

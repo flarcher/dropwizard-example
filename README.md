@@ -24,7 +24,7 @@ Here is the command for the build:
 
 Then, you can run the server with:
 
-    java -jar local-main/target/local-main-1.0-SNAPSHOT.jar server configuration.yml
+    java -jar target/table-pairing.jar server configuration.yml
 
 This server will deploy an API accessible from [http://localhost:8000/api](http://localhost:8000/api) by default. The API port can be configured as the attribute `server.connecter.port` in the configuration file.
 
