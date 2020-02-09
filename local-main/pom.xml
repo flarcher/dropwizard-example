@@ -100,6 +100,10 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>http-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>web-app</artifactId>
+        </dependency>
 
     </dependencies>
 
