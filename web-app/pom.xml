@@ -33,9 +33,9 @@
                         </goals>
                         <configuration>
                             <target>
-                                <move todir="${dist.directory}">
-                                    <fileset dir="${webapp.resources.dir}" includes="*.html" />
-                                </move>
+                                <copy todir="${dist.directory}">
+                                    <fileset dir="${webapp.resources.dir}" includes="*.html *.css *.js" />
+                                </copy>
                             </target>
                         </configuration>
                     </execution>
