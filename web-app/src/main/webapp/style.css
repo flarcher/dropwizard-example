@@ -1,9 +1,23 @@
 body {
 	font-size: 1em;
 	font-variant: small-caps;
-	color: #242424;
 	text-align: center;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	--revert-color: rgb(192, 192, 192);
+	--revert-em-color: #FFFFFF;
+	--main-color: #242424;
+	--main-em-color: #000000;
+}
+em {
+	color: var(--main-em-color);
+	font-weight: bold;
+	font-style: normal;
+}
+h1 {
+	color: var(--main-em-color);
+	text-decoration: underline solid var(--revert-color);
+	letter-spacing: 0.2em;
+	font-size: 2em;
 }
 section {
 	border-radius: 5px;
@@ -11,12 +25,39 @@ section {
 	padding: 3em;
 	margin: 10px auto;
 	max-width: 80%;
+	color: var(--main-color);
 }
 footer {
 	position: fixed;
 	bottom: 0;
-	width: 100px;
-	color: white;
-	background-color: #242424;
-	line-height: 4em;
+	left: 0;
+	width: calc(100vw - 20px);
+	color: var(--revert-color);
+	background-color: var(--main-color);
+	line-height: 2em;
+	padding: 10px;
+	font-size: 0.75em;
+	--link-color: turquoise;
+	--link-padding: 3px;
+}
+footer a {
+	color: var(--revert-em-color);
+	text-decoration: underline;
+	text-decoration-color: var(--link-color);
+	padding: var(--link-padding);
+}
+footer a:hover {
+	text-decoration: none;
+	background-color: var(--link-color);
+	border-radius: var(--link-padding);
+	color: var(--main-color);
+}
+footer em {
+	color: var(--revert-em-color);
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
 }
