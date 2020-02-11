@@ -8,10 +8,11 @@ import org.slf4j.LoggerFactory;
 import java.awt.*;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.function.Consumer;
 
 public class Main {
 
@@ -21,27 +22,36 @@ public class Main {
 		Class<?> mainClass = MethodHandles.lookup().lookupClass();
 		LOGGER = LoggerFactory.getLogger(mainClass);
 
-		// Opens the web-app immediately
-		LOGGER.info("~~~~~ Web application Start ~~~~~~");
-		open(mainClass, "index.html");
+		Consumer<Integer> onStart = port -> {
+			LOGGER.info("~~~~~ Web application Start ~~~~~~");
+			open(mainClass, "index.html", Integer.toString(port));
+		};
 
-		// Starts the API
+		PairingApplication serverApp = new PairingApplication(onStart);
 		LOGGER.info("~~~~~ API Start ~~~~~~");
-		new PairingApplication().run(args);
+		serverApp.run(args);
 	}
 
-	private static void open(Class<?> clazz, String fileName) {
-		URL currentLocation = clazz.getProtectionDomain().getCodeSource().getLocation();
+	private static void open(Class<?> clazz, String fileName, String query) {
+		URI uri = null;
 		try {
-			Path currentPath = Paths.get(currentLocation.toURI()).getParent();
+			uri = clazz.getProtectionDomain().getCodeSource().getLocation().toURI();
+			Path currentPath = Paths.get(uri).getParent();
 			Preconditions.checkState(currentPath.toFile().isDirectory());
-			Desktop.getDesktop().open(currentPath.resolve(fileName).toFile());
+			uri = currentPath.resolve(fileName).toUri();
+			if (query != null) {
+				// The use of a query param does not work
+				// See https://stackoverflow.com/questions/24334436/setting-a-query-string-from-javas-desktop-getdesktop-browseuri-uri
+				// new URI("file", "", programPath, "version=1.0.3", "");
+				uri = new URI(uri.toString() + "#" + query);
+			}
+			Desktop.getDesktop().browse(uri);
 		}
 		catch (URISyntaxException e) {
 			LOGGER.error("Internal error");
 		}
 		catch (IOException e) {
-			LOGGER.error("Impossible to open " + fileName);
+			LOGGER.error("Impossible to open " + uri);
 		}
 	}
 }
