@@ -15,7 +15,7 @@ em {
 }
 h1 {
 	color: var(--main-em-color);
-	text-decoration: underline solid var(--revert-color);
+	text-decoration: underline double var(--revert-color);
 	letter-spacing: 0.2em;
 	font-size: 2em;
 }
@@ -23,8 +23,7 @@ section {
 	border-radius: 5px;
 	border: 2px solid #525252;
 	padding: 3em;
-	margin: 10px auto;
-	max-width: 80%;
+	margin: 10px;
 	color: var(--main-color);
 }
 footer {
