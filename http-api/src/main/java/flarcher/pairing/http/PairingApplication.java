@@ -45,6 +45,7 @@ public class PairingApplication extends Application<PairingConfiguration> {
 
 		int defaultTableCount = configuration.getDefaultTableCount();
 		environment.jersey().register(new TournamentResource(defaultTableCount));
+		environment.jersey().register(new CORS_ResponseFilter());
 		environment.healthChecks().register("configuration", new PairingConfigurationHealthCheck(defaultTableCount));
 	}
 }
