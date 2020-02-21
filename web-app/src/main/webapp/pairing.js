@@ -1,4 +1,11 @@
 
+var toStep = function(index) {
+	console.info('To step ' + index);
+	document.querySelectorAll('section.current')
+		.forEach(function(s) { s.classList.remove('current'); });
+	document.getElementById('step' + index).classList.add('current');
+};
+
 // Calls a GET request to the API
 var callGet = (path, thenFn) => {
 	fetch(
@@ -11,13 +18,6 @@ var callGet = (path, thenFn) => {
 				response.json().then(thenFn);
 			}
 		});
-};
-
-var toStep = (index) => {
-	console.info('To step ' + index);
-	document.querySelectorAll('section:not([hidden])')
-		.forEach(s => s.setAttribute('hidden', ''));
-	document.getElementById('step' + index).removeAttribute('hidden');
 };
 
 // Application start

@@ -25,6 +25,10 @@ section {
 	padding: 3em;
 	margin: 10px;
 	color: var(--main-color);
+	display: none;
+}
+section.current {
+	display: block;
 }
 footer {
 	position: fixed;
