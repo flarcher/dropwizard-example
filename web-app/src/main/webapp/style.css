@@ -30,6 +30,12 @@ section {
 section.current {
 	display: block;
 }
+section.error {
+	border-color: red;
+	border-width: 3px;
+	color: brown;
+	font-weight: bold;
+}
 footer {
 	position: fixed;
 	bottom: 0;
