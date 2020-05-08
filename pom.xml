@@ -4,13 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>name.flarcher.pairing</groupId>
+    <groupId>com.company.example</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>core</module>
-        <module>matrix-xls</module>
         <module>http-api</module>
         <module>local-main</module>
         <module>web-app</module>
@@ -89,9 +88,8 @@
 
     <licenses>
         <license>
-            <name>CC BY-NC-SA</name>
-            <comments>Creative Commons BY-NC-SA</comments>
-            <url>https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</url>
+            <name>Apache 2</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
 
