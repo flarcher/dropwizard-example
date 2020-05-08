@@ -1,8 +1,10 @@
-# ETC Table Pairing Tool
+# Dropwizard API example
 
-Helps at pairing armies on tables using rules of the **European Tabletop Championship**.
+It includes:
+* An HTTP API implemented using [DropWizard](https://www.dropwizard.io/en/latest/)
+* A very simple web application using this API
 
-## Dependnencies
+## Dependencies
 
 * It needs a *Java Runtime Environment* version 8+ for the API.
 * An *evergreen / modern* web browser (not IE)
@@ -23,11 +25,11 @@ Here is the command for the build:
 
 Then, you can run the server with:
 
-    java -jar target/table-pairing.jar server target/configuration.yml
+    java -jar target/app.jar server target/configuration.yml
 
 This server will deploy an API accessible from [http://localhost:8000/api](http://localhost:8000/api) by default. The API port can be configured as the attribute `server.connecter.port` in the configuration file.
 
 ## License
 
-This project is licensed according to **CC BY-NC-SA** ( [description](https://creativecommons.org/licenses/by-nc-sa/4.0/) | [legal](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) )
+This project is using the [Apache2](https://www.apache.org/licenses/LICENSE-2.0) license.
 
