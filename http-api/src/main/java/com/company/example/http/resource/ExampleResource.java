@@ -10,17 +10,17 @@ import javax.ws.rs.core.MediaType;
 @Path("tournament")
 public class ExampleResource {
 
-	public ExampleResource(int defaultTableCount) {
-		this.defaultTableCount = defaultTableCount;
+	public ExampleResource(int tableCount) {
+            this.defaultCount = tableCount;
 	}
 
-	private final int defaultTableCount;
+	private final int defaultCount;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ExampleModel getDefaultTournament() {
 		ExampleModel t = new ExampleModel();
-		t.setCount(defaultTableCount);
+		t.setCount(defaultCount);
 		return t;
 	}
 
