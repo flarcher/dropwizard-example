@@ -18,6 +18,21 @@ window.addEventListener("load", function() {
 
 //-- Compatibility mode "OFF" from here
 
+var defaultPort = 8000;
+
+var handleError = () => {
+	toStep(3);
+	var port = (window.tpt || { port: -1 }).port;
+	document.querySelector('section.error > #port').innerHTML = port.toFixed();
+	if (port != defaultPort) {
+		// Automatically redirect to the default port
+		setTimeout(() => {
+			window.location.hash = defaultPort.toFixed();
+			window.location.reload(false);
+		}, 3000)
+	}
+};
+
 // Calls a GET request to the API
 var callGet = (path, thenFn) => {
 	fetch(
@@ -25,10 +40,14 @@ var callGet = (path, thenFn) => {
 		.then((response) => {
 			if (!response.ok) {
 				console.error('GET call failed with status ' + response.status);
+				handleError();
 			}
 			else {
 				response.json().then(thenFn);
 			}
+		})
+		.catch((error) => {
+			handleError();
 		});
 };
 
