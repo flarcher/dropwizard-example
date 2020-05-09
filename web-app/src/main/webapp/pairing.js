@@ -51,7 +51,7 @@ window.addEventListener("load", () => {
 	console.info('Port is ' + port);
 	window.tpt = { port: port };
 
-	callGet('tournament', json => {
+	callGet('example', json => {
 			toStep(2);
 		});
 

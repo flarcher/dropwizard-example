@@ -7,11 +7,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("tournament")
+@Path("example")
 public class ExampleResource {
 
-	public ExampleResource(int tableCount) {
-            this.defaultCount = tableCount;
+	public ExampleResource(int count) {
+            this.defaultCount = count;
 	}
 
 	private final int defaultCount;
