@@ -70,3 +70,21 @@ footer em {
 .right {
 	float: right;
 }
+
+grid {
+  display: grid;
+  padding: 10px;
+  margin: 10px auto;
+  grid-template-columns: auto auto;
+  grid-column-gap: 0;
+  grid-row-gap: 10px;
+}
+grid > div {
+  text-align: left;
+}
+.value {
+  font-family: monospace;
+  text-align: right;
+  font-weight: bold;
+  color: #000;
+}

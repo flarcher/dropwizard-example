@@ -4,17 +4,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ExampleModel {
 
-	public ExampleModel() {
+	public ExampleModel() {}
+
+	@JsonProperty("config_value")
+	private int configurationValue;
+
+	@JsonProperty("app_value")
+        private int applicationValue;
+        
+	public int getConfiguredValue() {
+		return configurationValue;
 	}
 
-	@JsonProperty("count")
-	private int count;
-
-	public int getCount() {
-		return count;
+	public void setConfiguredValue(int count) {
+		this.configurationValue = count;
 	}
 
-	public void setCount(int count) {
-		this.count = count;
-	}
+        public int getApplicationValue() {
+            return applicationValue;
+        }
+
+        public void setApplicationValue(int applicationValue) {
+            this.applicationValue = applicationValue;
+        }        
 }

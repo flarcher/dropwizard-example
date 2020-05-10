@@ -1,5 +1,6 @@
 package com.company.example.http.resource;
 
+import com.company.example.Feature;
 import com.company.example.http.model.ExampleModel;
 
 import javax.ws.rs.GET;
@@ -18,9 +19,10 @@ public class ExampleResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ExampleModel getDefaultTournament() {
+	public ExampleModel getDefault() {
 		ExampleModel t = new ExampleModel();
-		t.setCount(defaultCount);
+		t.setConfiguredValue(defaultCount);
+                t.setApplicationValue(Feature.getAnswer());
 		return t;
 	}
 

@@ -5,7 +5,9 @@ var toStep = function(index) {
 	console.info('To step ' + index);
 	document.querySelectorAll('section.current')
 		.forEach(function(s) { s.classList.remove('current'); });
-	document.getElementById('step' + index).classList.add('current');
+	var section = document.getElementById('step' + index);
+	section.classList.add('current');
+	return section;
 };
 
 var unsupportedBrowser = false;
@@ -21,9 +23,9 @@ window.addEventListener("load", function() {
 var defaultPort = 8000;
 
 var handleError = () => {
-	toStep(3);
+	var section = toStep(3);
 	var port = (window.tpt || { port: -1 }).port;
-	document.querySelector('section.error > #port').innerHTML = port.toFixed();
+	section.querySelector('#port').innerHTML = port.toFixed();
 	if (port != defaultPort) {
 		// Automatically redirect to the default port
 		setTimeout(() => {
@@ -71,7 +73,10 @@ window.addEventListener("load", () => {
 	window.tpt = { port: port };
 
 	callGet('example', json => {
-			toStep(2);
+			var section = toStep(2);
+			// We display the values returned by the API
+			section.querySelector('#cfg').innerHTML = json.config_value.toFixed()
+			section.querySelector('#app').innerHTML = json.app_value.toFixed()
 		});
 
 }, true);
