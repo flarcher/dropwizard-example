@@ -22,7 +22,7 @@ public class ExampleResource {
 	public ExampleModel getDefault() {
 		ExampleModel t = new ExampleModel();
 		t.setConfiguredValue(defaultCount);
-                t.setApplicationValue(Feature.getAnswer());
+		t.setApplicationValue(Feature.getAnswer());
 		return t;
 	}
 

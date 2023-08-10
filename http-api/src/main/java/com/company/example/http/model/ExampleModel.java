@@ -20,11 +20,11 @@ public class ExampleModel {
 		this.configurationValue = count;
 	}
 
-        public int getApplicationValue() {
-            return applicationValue;
-        }
+	public int getApplicationValue() {
+		return applicationValue;
+	}
 
-        public void setApplicationValue(int applicationValue) {
-            this.applicationValue = applicationValue;
-        }        
+	public void setApplicationValue(int applicationValue) {
+		this.applicationValue = applicationValue;
+	}
 }
